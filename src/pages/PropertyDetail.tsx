@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { propertyService } from '../services/propertyService';
 import { socialConfig } from '../config/social';
-import { MapPin, Maximize, BedDouble, Bath, Check, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MapPin, Maximize, BedDouble, Bath, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function PropertyDetail() {
   const { id } = useParams<{ id: string }>();
@@ -243,20 +243,7 @@ export default function PropertyDetail() {
                 </div>
               )}
 
-              {/* Features */}
-              {property.features && property.features.length > 0 && (
-                <div className="mb-12">
-                  <h3 className="text-2xl font-display text-white mb-6">Características</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    {property.features.map((feature, i) => (
-                      <div key={i} className="flex items-center text-secondary">
-                        <Check size={16} className="text-accent mr-2 shrink-0" />
-                        <span className="font-light">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+
 
               {/* Galería Multimedia (Videos Carrusel Premium) */}
               {property.videoUrls && property.videoUrls.length > 0 && (

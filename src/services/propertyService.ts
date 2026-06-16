@@ -21,9 +21,6 @@ const parseInformation = (): Property[] => {
     const titleLine = lines.find(l => l.startsWith('# '));
     const name = titleLine ? titleLine.replace('# ', '') : `Propiedad ${index + 1}`;
     
-    // Extraer prefijo para cruzar con nombres de archivos (ej. 'alameda', 'oasis')
-    let slugKey = name.toLowerCase().split(' ')[0];
-    
     let description = '';
     const details: Record<string, string> = {};
     
@@ -36,6 +33,9 @@ const parseInformation = (): Property[] => {
         description += line + ' ';
       }
     });
+
+    // Extraer prefijo para cruzar con nombres de archivos (ej. 'alameda', 'oasis')
+    let slugKey = details['slug'] || name.toLowerCase().split(' ')[0];
 
     // Recopilar imágenes correspondientes
     const propertyImages: string[] = [];
@@ -74,7 +74,6 @@ const parseInformation = (): Property[] => {
       area: details['area'] || details['área'] || '',
       bedrooms: parseInt(details['habitaciones']) || 0,
       bathrooms: parseInt(details['baños']) || parseInt(details['banos']) || 0,
-      features: details['características'] ? details['características'].split(',').map(f => f.trim()) : [],
       mainImage,
       gallery,
       videoUrls: propertyVideos,

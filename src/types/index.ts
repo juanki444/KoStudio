@@ -6,7 +6,6 @@ export interface Property {
   location: string;
   mainImage: string;
   gallery: string[];
-  features: string[];
   price?: string;
   area?: string;
   bedrooms?: number;
