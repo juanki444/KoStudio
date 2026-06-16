@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { propertyService } from '../services/propertyService';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import luxuryHeroBg from '../assets/luxury-hero-bg.png';
+import logoReal from '../assets/logo-real.jpg';
 
 export default function Home() {
   const featured = propertyService.getFeaturedProperties();
@@ -10,43 +10,30 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden -mt-20">
-        <div className="absolute inset-0 z-0 bg-black">
-          <img 
-            src={luxuryHeroBg} 
-            alt="Hero Property" 
-            className="w-full h-full object-cover opacity-60 md:opacity-70"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-background"></div>
+      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden -mt-20 bg-background">
+        <div className="absolute inset-0 z-0 bg-black flex flex-col items-center justify-center">
+          <div className="w-full h-full max-w-[1400px] mx-auto flex items-center justify-center px-8 pt-32 pb-48 md:px-16 lg:px-24">
+            <img 
+              src={logoReal} 
+              alt="KoStudio" 
+              className="w-full h-full object-contain opacity-90"
+            />
+          </div>
+          <div className="absolute inset-0 bg-black/10 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/40 pointer-events-none"></div>
         </div>
         
-        <div className="relative z-10 container mx-auto px-6 text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
+        <div className="relative z-10 w-full h-full container mx-auto px-6 flex flex-col justify-end pb-24 md:pb-32">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-display font-semibold mb-6 tracking-tight text-white"
+            className="flex flex-col sm:flex-row gap-5 justify-center"
           >
-            Redefiniendo el <span className="text-accent italic font-light">Lujo</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-lg md:text-xl text-secondary max-w-2xl mx-auto mb-10 tracking-wide font-light"
-          >
-            Proyectos inmobiliarios exclusivos diseñados para inspirar, conectar y elevar tu estilo de vida.
-          </motion.p>
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Link to="/propiedades" className="px-8 py-4 bg-white text-black font-medium tracking-wide hover:bg-secondary transition-colors duration-300">
+            <Link to="/propiedades" className="px-8 py-4 bg-white text-black font-medium tracking-wide hover:bg-secondary transition-colors duration-300 text-center">
               EXPLORAR PROPIEDADES
             </Link>
-            <Link to="/contacto" className="px-8 py-4 bg-transparent border border-white text-white font-medium tracking-wide hover:bg-white/10 transition-colors duration-300">
+            <Link to="/contacto" className="px-8 py-4 bg-transparent border border-white text-white font-medium tracking-wide hover:bg-white/10 transition-colors duration-300 text-center">
               CONTACTAR
             </Link>
           </motion.div>
