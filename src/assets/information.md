@@ -1,4 +1,4 @@
-# ALAMEDA RESIDENCES
+# URBANISMO ALAMEDA DEL ESTE
 Ubicado en la via sampues chinu, con mas de 15 amenidades entre piscinas canchas, parques y seguridad, con lotes desde 300 y 700 metros cuadrados.
 Area: 120 m2
 Precio: Consultar
@@ -18,7 +18,7 @@ Características: Coworking, Rooftop, Amoblado
 
 ---
 
-# MIRAFLORES LUXURY
+# CONDOMINIO CAMPESTRE MIRA FLORES
 Un proyecto donde la naturaleza y la arquitectura convergen. Amplias zonas verdes y diseño eco-sostenible en las afueras de la ciudad.
 Area: 350 m2
 Precio: Consultar
@@ -28,7 +28,7 @@ Características: Senderos, Club House, Cancha de Tenis
 
 ---
 
-# RAMBLAS TOWERS
+# CONDOMINIO CAMPESTRE LAS RAMBLAS
 Vistas inigualables al mar desde lo más alto. Apartamentos de ultra lujo con acabados importados y diseño de autor.
 Area: 450 m2
 Precio: Consultar

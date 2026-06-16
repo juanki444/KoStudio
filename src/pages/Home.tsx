@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { propertyService } from '../services/propertyService';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -6,19 +6,33 @@ import logoReal from '../assets/logo-real.jpg';
 
 export default function Home() {
   const featured = propertyService.getFeaturedProperties();
+  const { scrollY } = useScroll();
+  const yParallax = useTransform(scrollY, [0, 800], [0, 120]);
 
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden -mt-20 bg-background">
         <div className="absolute inset-0 z-0 bg-black flex flex-col items-center justify-center">
-          <div className="w-full h-full max-w-[1400px] mx-auto flex items-center justify-center px-8 pt-32 pb-48 md:px-16 lg:px-24">
-            <img 
+          <motion.div 
+            style={{ y: yParallax }}
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="w-full h-full max-w-[1400px] mx-auto flex items-center justify-center px-8 pt-32 pb-48 md:px-16 lg:px-24"
+          >
+            <motion.img 
               src={logoReal} 
               alt="KoStudio" 
-              className="w-full h-full object-contain opacity-90"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ 
+                duration: 6, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+              className="w-full h-full object-contain opacity-95"
             />
-          </div>
+          </motion.div>
           <div className="absolute inset-0 bg-black/10 pointer-events-none"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/40 pointer-events-none"></div>
         </div>
